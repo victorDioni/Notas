@@ -4,15 +4,18 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toolbar
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    //TODO: A variavel só vai ser instaciada quando ela for chamada
+    val notasAdapter: NotasAdapter by lazy {
+        NotasAdapter()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
 
         setSupportActionBar(toolbar)
     }
@@ -24,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == R.menu.menu_principal){
+        if(item.itemId == R.id.action_adicionar){
             //TODO: Chamar tela para nova adicionar
         }
         return super.onOptionsItemSelected(item)
